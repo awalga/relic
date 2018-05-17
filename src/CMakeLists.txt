@@ -202,6 +202,11 @@ if (SHLIB)
 		add_library(${RELIC} SHARED ${RELIC_SRCS} ${ARITH_OBJS})
 	endif(AMALG)
 	add_dependencies(${RELIC} arith_objs)
+	target_include_directories(${RELIC}
+			PUBLIC
+			$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/>
+			$<INSTALL_INTERFACE:include>)
 	target_link_libraries(${RELIC} ${ARITH_LIBS})
 	LINK_LIBS(${RELIC})
 	install(TARGETS ${RELIC} EXPORT relic-config LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
@@ -214,6 +219,11 @@ else()
 		add_library(${RELIC} STATIC ${RELIC_SRCS} ${ARITH_OBJS})
 	endif(AMALG)
 	add_dependencies(${RELIC} arith_objs)
+	target_include_directories(${RELIC}
+			PUBLIC
+			$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/>
+			$<INSTALL_INTERFACE:include>)
 	target_link_libraries(${RELIC} ${ARITH_LIBS})
 	LINK_LIBS(${RELIC})
 	install(TARGETS ${RELIC} EXPORT relic-config ARCHIVE DESTINATION lib)
