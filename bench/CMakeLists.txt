@@ -1,7 +1,7 @@
 macro(ADD_MODULE MODULE)
 	add_executable(bench_${MODULE} bench_${MODULE}.c)
 	if (STLIB)
-		target_link_libraries(bench_${MODULE} ${RELIC_S})
+		target_link_libraries(bench_${MODULE} ${RELIC})
 	else(STLIB)
 		if (SHLIB)
 			target_link_libraries(bench_${MODULE} ${RELIC})

@@ -49,10 +49,11 @@ endif (GMP_INCLUDE_DIR AND GMP_LIBRARIES)
 
 if (GMP_FOUND)
     message(STATUS "Configured GMP: ${GMP_LIBRARIES}")
-    add_library(GMP INTERFACE IMPORTED)
-    set_target_properties(GMP PROPERTIES
+    add_library(GMP::GMP INTERFACE IMPORTED)
+    set_target_properties(GMP::GMP PROPERTIES
             INTERFACE_INCLUDE_DIRECTORIES "${GMP_INCLUDE_DIR}"
             )
+    add_dependencies(GMP:GMP ${GMP_LIBRARIES})
 else (GMP_FOUND)
     message(STATUS "Could NOT find GMP")
 endif (GMP_FOUND)
