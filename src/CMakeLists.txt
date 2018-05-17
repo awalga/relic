@@ -205,7 +205,7 @@ if (SHLIB)
 	target_include_directories(${RELIC}
 			PUBLIC
 			$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>
 			$<INSTALL_INTERFACE:include>)
 	target_link_libraries(${RELIC} ${ARITH_LIBS})
 	LINK_LIBS(${RELIC})
@@ -222,7 +222,7 @@ else()
 	target_include_directories(${RELIC}
 			PUBLIC
 			$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include/>
+			$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>
 			$<INSTALL_INTERFACE:include>)
 	target_link_libraries(${RELIC} ${ARITH_LIBS})
 	LINK_LIBS(${RELIC})
